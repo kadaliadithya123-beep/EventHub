@@ -356,3 +356,11 @@ body {
     align-items: center;
   }
 }
+/* Login Page Background */
+#login-page {
+  background: linear-gradient(135deg, #0d0d2b, #1a1a40);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
