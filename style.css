@@ -192,26 +192,24 @@ body {
   font-size: 0.9rem;
   color: #ccc;
 }
+/* Google Login Button */
 .google-btn {
-  margin-top: 16px;
-  padding: 10px 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  border-radius: 8px;
+  gap: 8px; /* logo and text madhya space */
+  background: #4285F4;
+  color: #fff;
   border: none;
-  background: #fff;
-  color: #000;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: box-shadow 0.3s;
 }
+
 .google-btn img {
-  width: 18px;
-  height: 18px;
-}
-.google-btn:hover {
-  box-shadow: 0 0 12px #00d9ff;
+  width: 20px;
+  height: 20px;
 }
 .form-link {
   margin-top: 14px;
