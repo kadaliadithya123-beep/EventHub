@@ -90,7 +90,7 @@ export function initRegisterForm() {
           skillsWanted: ""
         });
 
-        window.location.href = "profile.html";
+        window.location.href = "index.html";
       } catch (err) {
         feedback.textContent = err.message;
       }
