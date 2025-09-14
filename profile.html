@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EventHub - Profile</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body id="profile-page">
+
+  <!-- 🔹 Background animation -->
+  <div id="animated-bg"></div>
+
+  <!-- 🔹 Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">EventHub</a>
+    <a href="users.html">Users</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="profile.html" class="profile-btn">
+      <img src="assets/images/avatar.png" alt="Profile" class="avatar click-glow" id="nav-avatar">
+    </a>
+    <button onclick="logoutUser()" class="logout-btn">Logout</button>
+  </nav>
+
+  <!-- 🔹 Profile Container -->
+  <section class="form-container">
+    <h2>My Profile</h2>
+
+    <form id="profile-form">
+      <input type="text" id="profile-name" placeholder="Full Name" required />
+      <input type="email" id="profile-email" placeholder="Email" required />
+      <textarea id="profile-bio" placeholder="Write your bio..."></textarea>
+      <input type="text" id="profile-skillsOffered" placeholder="Skills you offer" />
+      <input type="text" id="profile-skillsWanted" placeholder="Skills you want" />
+
+<!-- Avatar Upload -->
+<label for="profile-avatar" class="file-label">Upload Profile Picture</label>
+<input type="file" id="profile-avatar" accept="image/*" />
+<img id="avatar-preview" src="assets/images/avatar.png" alt="Preview" class="avatar" style="margin-top:10px;" />
+    </form>
+
+    <!-- Feedback Section -->
+    <section class="feedback-section">
+      <h3>Feedback Received</h3>
+      <ul id="feedback-list"></ul>
+    </section>
+  </section>
+
+  <!-- 🔹 Firebase Config & Scripts -->
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="script.js"></script>
+  <script type="module">
+    import { loadProfile, saveProfile, requireLogin } from "./script.js";
+
+    // ✅ only logged-in users can open profile
+    requireLogin();
+
+    // ✅ load profile data from Firestore
+    loadProfile();
+
+    // ✅ save profile on submit
+    document.getElementById("profile-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      await saveProfile();
+    });
+  </script>
+</body>
+</html>

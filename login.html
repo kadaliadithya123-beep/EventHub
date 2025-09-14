@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventHub - Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="login-page">
+
+  <!-- Background animation -->
+  <div id="animated-bg"></div>
+
+  <!-- Login Container -->
+  <div class="auth-container">
+    <img src="assets/logo.png" alt="EventHub Logo" class="auth-logo">
+    <h2>Login to EventHub</h2>
+
+    <form id="loginForm">
+      <input type="email" id="loginEmail" placeholder="Email" required>
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <button type="submit" class="auth-btn">Login</button>
+    </form>
+
+    <p>or</p>
+
+    <!-- Google Login -->
+    <button id="google-login" class="google-btn">
+      <img src="assets/google.png" alt="Google logo"> Login with Google
+    </button>
+
+    <p class="auth-link">
+      Don’t have an account? <a href="register.html">Register here</a>
+    </p>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js"></script>
+  <!-- Firebase Config -->
+<script type="module" src="firebase-config.js"></script>
+
+<!-- Login Logic -->
+<script type="module" src="login.js"></script>
+
+  <!-- Main Script -->
+  <script src="script.js" type="module"></script>
+
+  <script type="module">
+    import { loginUser, loginWithGoogle } from "./script.js";
+
+    // Email/Password login
+    document.getElementById("loginForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("loginEmail").value;
+      const password = document.getElementById("loginPassword").value;
+      await loginUser(email, password);
+    });
+
+    // Google login
+    document.getElementById("google-login").addEventListener("click", loginWithGoogle);
+  </script>
+
+</body>
+</html>

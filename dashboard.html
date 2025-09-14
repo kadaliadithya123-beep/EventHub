@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EventHub - Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body id="dashboard-page">
+
+  <!-- 🔹 Background animation -->
+  <div id="animated-bg"></div>
+
+  <!-- 🔹 Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">EventHub</a>
+    <a href="users.html">Users</a>
+    <a href="dashboard.html" class="active">Dashboard</a>
+    <a href="profile.html" class="profile-btn">
+      <img src="assets/images/avatar.png" alt="Profile" class="avatar click-glow" id="nav-avatar">
+    </a>
+    <button onclick="logoutUser()" class="logout-btn">Logout</button>
+  </nav>
+
+  <!-- 🔹 Dashboard Container -->
+  <section class="dashboard-container">
+    <h2>My Dashboard</h2>
+
+    <!-- My Events -->
+    <div class="dashboard-card">
+      <h3>My Events</h3>
+      <ul id="my-events">
+        <!-- Firebase JS will inject user events here -->
+      </ul>
+    </div>
+
+    <!-- My Connections -->
+    <div class="dashboard-card">
+      <h3>My Connections</h3>
+      <ul id="my-connections">
+        <!-- Firebase JS will inject user connections here -->
+      </ul>
+    </div>
+  </section>
+
+  <!-- 🔹 Firebase Config & Scripts -->
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="script.js"></script>
+  <script type="module">
+    import { requireLogin, loadDashboard } from "./script.js";
+
+    // ✅ redirect if not logged in
+    requireLogin();
+
+    // ✅ load dashboard data
+    loadDashboard();
+  </script>
+</body>
+</html>

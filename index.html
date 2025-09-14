@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EventHub - Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body id="home-page">
+
+  <!-- 🔹 Background animation -->
+  <div id="animated-bg"></div>
+
+  <!-- 🔹 Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">EventHub</a>
+    <a href="users.html">Users</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="profile.html" class="profile-btn">
+      <img src="assets/images/avatar.png" alt="Profile" class="avatar click-glow" id="nav-avatar">
+    </a>
+    <button onclick="logoutUser()" class="logout-btn">Logout</button>
+  </nav>
+
+  <!-- 🔹 Search Bar -->
+  <section class="search-container">
+    <input type="text" id="searchInput" placeholder="Search by name or skill..." />
+    <button id="searchBtn" class="glow-btn">Search</button>
+  </section>
+
+  <!-- 🔹 Featured Section -->
+  <section class="featured-section">
+    <h2>Featured Events</h2>
+    <div class="featured-images">
+      <img src="assets/images/event1.png" alt="Event 1" class="click-glow">
+      <img src="assets/images/event2.png" alt="Event 2" class="click-glow">
+      <img src="assets/images/event3.png" alt="Event 3" class="click-glow">
+    </div>
+  </section>
+
+  <!-- 🔹 Firebase Config & Scripts -->
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="script.js"></script>
+  <script type="module">
+    import { requireLogin } from "./script.js";
+    requireLogin(); // redirect to login if not logged in
+  </script>
+
+</body>
+</html>
