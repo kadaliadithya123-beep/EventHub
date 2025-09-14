@@ -417,3 +417,26 @@ body {
 .auth-link a:hover {
   text-decoration: underline;
 }
+/* Auth Container Center Box */
+.auth-container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 380px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Logo Image */
+.auth-container img {
+    width: 80px;
+    margin-bottom: 15px;
+}
+
+/* Title */
+.auth-container h2 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
